@@ -1,0 +1,14 @@
+.classDiv {
+  background-color: #e47e36;
+  border-radius: 5px;
+  padding: 3rem 1rem;
+  margin: 0 5rem;
+  text-align: center;
+  width: fit-content;
+  float: right;
+  color: white;
+}
+
+.classDiv p {
+  font-size: larger;
+}

@@ -1,0 +1,28 @@
+.heading {
+  text-align: center;
+}
+
+.btn-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+button {
+  background-color: #19e1a8;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1bad86;
+}
+
+.heading-container {
+  margin-bottom: 10rem;
+}

@@ -1,0 +1,14 @@
+.funcDiv {
+  background-color: #3a8dba;
+  border-radius: 5px;
+  padding: 3rem 1rem;
+  margin: 0 5rem;
+  text-align: center;
+  width: fit-content;
+  float: left;
+  color: white;
+}
+
+.funcDiv p {
+  font-size: larger;
+}
