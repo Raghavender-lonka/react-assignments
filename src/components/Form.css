@@ -30,6 +30,12 @@
   justify-content: center;
   align-items: center;
 }
+.user-data2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 label {
   font-size: 25px;

@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import "./Form.css"
-// import FormData from "./FormData"
+import FormData from "./FormData"
 
 function Form() {
   let [userName, setUserName] = useState("")
   let [userDept, setUserDept] = useState("")
   let [userRating, setUserRating] = useState("")
   let [data, setData] = useState([])
-  // let [displayData, setDisplayData] = useState(false)
+  let [displayData, setDisplayData] = useState(false)
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -18,53 +18,64 @@ function Form() {
       rating: userRating,
     })
     setData(data)
-    // setDisplayData(true)
+    setDisplayData(!displayData)
     setUserName("")
     setUserDept("")
     setUserRating("")
     // console.log(data)
   }
 
+  const displayHandler = () => {
+    setDisplayData((prev) => !prev)
+  }
   return (
     <>
-      <div>
-        <h1>EMPLOYEE FEEDBACK FORM</h1>
-        <form onSubmit={submitHandler}>
-          <label htmlFor="name">Name :</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-          <br />
-          <br />
-          <label htmlFor="department">Department :</label>
-          <input
-            type="text"
-            id="department"
-            name="department"
-            value={userDept}
-            onChange={(e) => setUserDept(e.target.value)}
-          />
-          <br />
-          <br />
-          <label htmlFor="rating">Rating :</label>
-          <input
-            type="number"
-            value={userRating}
-            onChange={(e) => setUserRating(e.target.value)}
-          />
-          <br />
-          <br />
-          <br />
-          <br />
+      {displayData ? (
+        <FormData onreceiveData={data} display={displayHandler} />
+      ) : (
+        <div>
+          <h1>EMPLOYEE FEEDBACK FORM</h1>
+          <form onSubmit={submitHandler}>
+            <label htmlFor="name">Name :</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <br />
+            <br />
+            <label htmlFor="department">Department :</label>
+            <input
+              type="text"
+              id="department"
+              name="department"
+              required
+              value={userDept}
+              onChange={(e) => setUserDept(e.target.value)}
+            />
+            <br />
+            <br />
+            <label htmlFor="rating">Rating :</label>
+            <input
+              type="number"
+              id="rating"
+              required
+              value={userRating}
+              onChange={(e) => setUserRating(e.target.value)}
+            />
+            <br />
+            <br />
+            <br />
+            <br />
 
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <div className="user-data">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
+      {/* <div className="user-data">
         <div className="user-info-container">
           {data.map((info, index) => {
             return (
@@ -75,7 +86,7 @@ function Form() {
             )
           })}
         </div>
-      </div>
+      </div> */}
       {/* <FormData onreceiveData={data} /> */}
     </>
   )

@@ -1,24 +1,25 @@
-// import React from "react"
+import React from "react"
+import "./Form.css"
 
-// function FormData(props) {
-//   return (
-//     <div>
-//       {props.onreceiveData.flat().map((info, index) => {
-//         {
-//           console.log(info)
-//         }
-//         return (
-//           <div key={index}>
-//             <h1>
-//               Name: {info.name} | Department: {info.dept} | Rating:{" "}
-//               {info.rating}
-//             </h1>
-//           </div>
-//         )
-//       })}
-//       <h1>Data</h1>
-//     </div>
-//   )
-// }
+function FormData(props) {
+  return (
+    <div className="user-data2">
+      <h1>EMPLOYEE FEEDBACK DATA</h1>
+      <div className="user-info-container">
+        {props.onreceiveData.flat().map((info, index) => {
+          return (
+            <div key={index} className="user-info">
+              Name: {info.name} | Department: {info.dept} | Rating:{" "}
+              {info.rating}
+            </div>
+          )
+        })}
+      </div>
+      <button type="submit" onClick={props.display}>
+        Go Back
+      </button>
+    </div>
+  )
+}
 
-// export default FormData
+export default FormData
