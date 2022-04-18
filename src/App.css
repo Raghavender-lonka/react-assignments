@@ -1,6 +1,30 @@
 /* .component-container {
   display: inline;
 } */
-body {
-  text-align: center;
+* {
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  /* display: inline; */
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(16, 16, 159);
+  padding: 1rem;
+  color: white;
+  font-size: 30px;
+}
+
+.navbar {
+  margin-bottom: 2rem;
+}
+
+.child1 {
+  margin: 2rem;
+}
+
+.notFound {
+  margin: 3rem;
+  color: rgb(61, 37, 37);
 }
