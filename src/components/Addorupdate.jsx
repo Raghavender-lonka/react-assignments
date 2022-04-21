@@ -53,7 +53,7 @@ const Addorupdate = () => {
           student.id === id
             ? {
                 id: id,
-                name: details.name,
+                name: details.name, // updating existing details
                 age: details.age,
                 course: details.course,
                 batch: details.batch,
@@ -67,7 +67,7 @@ const Addorupdate = () => {
 
   return (
     <Box>
-      <form onSubmit={handleSubmit} className="editDetails">
+      <form onSubmit={handleSubmit} className="form">
         <div className="inputRow">
           <TextField
             label="Name"
