@@ -126,7 +126,7 @@ const Addorupdate = () => {
         <div className="buttonContainer">
           {" "}
           <Link to="/students" className="link">
-            <button className="button canc">Cancel</button>
+            <button className="button cancel">Cancel</button>
           </Link>
           <button type="submit" className="button">
             Update

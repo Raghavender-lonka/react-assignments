@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap");
+
 * {
   margin: 0;
 }
@@ -8,12 +10,13 @@
   justify-content: space-around;
   background-color: rgb(16, 16, 159);
   padding: 1rem;
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .main-div1 {
   color: white;
   text-decoration: none;
+  font-family: "Lobster", cursive;
 }
 
 .main-div1:hover {
