@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/students" element={<Student />} />
-          <Route path="/addorupdate" element={<Addorupdate />} />
-          <Route path="/addorupdate/:id" element={<Addorupdate />} />
+          <Route path="/students-desc" element={<Addorupdate />} />
+          <Route path="/students-desc/:id" element={<Addorupdate />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

@@ -18,7 +18,7 @@ export default function Student() {
       <div className="tableData-head">
         <h1>Students Details</h1>
 
-        <Link to={`/addorupdate`} className="button">
+        <Link to={`/students-desc`} className="button">
           Add new student
         </Link>
       </div>
@@ -47,7 +47,7 @@ export default function Student() {
                 <TableCell align="right">{row.batch}</TableCell>
                 <TableCell align="right">
                   {" "}
-                  <Link to={`/addorupdate/${row.id}`}>Edit</Link>
+                  <Link to={`/students-desc/${row.id}`}>Edit</Link>
                 </TableCell>
               </TableRow>
             ))}
