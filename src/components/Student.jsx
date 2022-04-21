@@ -1,4 +1,5 @@
-import * as React from "react"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
@@ -6,27 +7,20 @@ import TableContainer from "@mui/material/TableContainer"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
+import { ContextData } from "./StudentsData"
 import "./Student.css"
 
-function createData(name, age, course, batch, change) {
-  return { name, age, course, batch, change }
-}
-
-const rows = [
-  createData("John", 26, "MERN", "October", "Edit"),
-  createData("Doe", 26, "MERN", "October", "Edit"),
-  createData("Biden", 26, "MERN", "October", "Edit"),
-  createData("Barar", 26, "MERN", "October", "Edit"),
-  createData("Christ", 26, "MERN", "October", "Edit"),
-]
-
 export default function Student() {
+  const [data] = useContext(ContextData)
+
   return (
     <div className="tableData">
       <div className="tableData-head">
         <h1>Students Details</h1>
 
-        <button>Add new student</button>
+        <Link to={`/addorupdate`} className="button">
+          Add new student
+        </Link>
       </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -40,9 +34,9 @@ export default function Student() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {data.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -51,7 +45,10 @@ export default function Student() {
                 <TableCell align="right">{row.age}</TableCell>
                 <TableCell align="right">{row.course}</TableCell>
                 <TableCell align="right">{row.batch}</TableCell>
-                <TableCell align="right">{row.change}</TableCell>
+                <TableCell align="right">
+                  {" "}
+                  <Link to={`/addorupdate/${row.id}`}>Edit</Link>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
