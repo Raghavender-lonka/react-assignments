@@ -11,7 +11,7 @@ const Addorupdate = () => {
   const navigate = useNavigate()
   const [data, setData] = useContext(ContextData)
   const [details, setDetails] = useState({
-    name: "",
+    name: "hi",
     age: "",
     course: "",
     batch: "",
@@ -19,7 +19,7 @@ const Addorupdate = () => {
   })
 
   useEffect(() => {
-    data.filter((item) => {
+    data.forEach((item) => {
       if (item.id === id) {
         //checking for existing id and set details of it
         // console.log(item.id, id)
