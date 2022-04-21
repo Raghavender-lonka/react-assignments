@@ -11,7 +11,7 @@ const Addorupdate = () => {
   const navigate = useNavigate()
   const [data, setData] = useContext(ContextData)
   const [details, setDetails] = useState({
-    name: "hi",
+    name: "",
     age: "",
     course: "",
     batch: "",
