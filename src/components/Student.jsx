@@ -12,6 +12,7 @@ import "./Student.css"
 
 export default function Student() {
   const [data] = useContext(ContextData)
+  // console.log(data)
 
   return (
     <div className="tableData">
