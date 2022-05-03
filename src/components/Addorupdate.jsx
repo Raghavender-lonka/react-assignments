@@ -1,15 +1,16 @@
 import React from "react"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { ContextData } from "./StudentsData"
 import "./Student.css"
+import { useDispatch, useSelector } from "react-redux"
+import { userAdded, userUpdated } from "../store/StudentsDataSlice"
 
 const Addorupdate = () => {
+  const dispatch = useDispatch()
   const { id } = useParams()
   const navigate = useNavigate()
-  const [data, setData] = useContext(ContextData)
   const [details, setDetails] = useState({
     name: "",
     age: "",
@@ -18,20 +19,30 @@ const Addorupdate = () => {
     id: "",
   })
 
+  const users = useSelector((state) =>
+    state.users.find((user) => user.id === id)
+  )
+
+  // to show the existing data in input fields
   useEffect(() => {
-    data.forEach((item) => {
-      if (item.id === id) {
-        //checking for existing id and set details of it
-        // console.log(item.id, id)
-        setDetails({
-          name: item.name,
-          age: item.age,
-          course: item.course,
-          batch: item.batch,
-        })
-      }
-    })
-  }, [data, id])
+    if (id === undefined) {
+      setDetails({
+        name: "",
+        age: "",
+        course: "",
+        batch: "",
+        id: "",
+      })
+    } else if (id === users.id) {
+      //checking for existing id and set details of it
+      setDetails({
+        name: users.name,
+        age: users.age,
+        course: users.course,
+        batch: users.batch,
+      })
+    }
+  }, [users, id])
 
   const handleChange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value }) // update the details
@@ -46,20 +57,16 @@ const Addorupdate = () => {
         ...details,
         id: Math.floor(Math.random() * 10000).toString(),
       }
-      setData([...data, newDetails]) // adding new details
+      dispatch(userAdded(newDetails)) // adding new details
     } else {
-      setData((prevState) =>
-        prevState.map((student) =>
-          student.id === id
-            ? {
-                id: id,
-                name: details.name, // updating existing details
-                age: details.age,
-                course: details.course,
-                batch: details.batch,
-              }
-            : student
-        )
+      dispatch(
+        userUpdated({
+          name: details.name,
+          age: details.age,
+          course: details.course,
+          batch: details.batch,
+          id: id,
+        })
       )
     }
     navigate("/students")

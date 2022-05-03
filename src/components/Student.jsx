@@ -1,4 +1,5 @@
-import { useContext } from "react"
+// import { useContext } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -7,12 +8,11 @@ import TableContainer from "@mui/material/TableContainer"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
-import { ContextData } from "./StudentsData"
+// import { ContextData } from "./StudentsData"
 import "./Student.css"
 
 export default function Student() {
-  const [data] = useContext(ContextData)
-  // console.log(data)
+  const users = useSelector((state) => state.users)
 
   return (
     <div className="tableData">
@@ -35,7 +35,7 @@ export default function Student() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row) => (
+            {users.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
