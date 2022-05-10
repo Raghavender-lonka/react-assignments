@@ -1,29 +1,27 @@
 import React from "react"
-import { Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import Student from "./components/Student"
-import Contact from "./components/Contact"
+import { Routes, Route, Link } from "react-router-dom"
 import "./App.css"
-import Navbar from "./components/Navbar.jsx"
-import NotFound from "./components/NotFound"
-import Addorupdate from "./components/Addorupdate"
-import { StudentsData } from "./components/StudentsData"
-// import Form from "./components/Form"
+import Contact from "./components/Contact"
+import Home from "./components/Home"
 
 function App() {
   return (
     <div className="App">
-      <Navbar className="navbar" />
-      <StudentsData>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/students" element={<Student />} />
-          <Route path="/students-desc" element={<Addorupdate />} />
-          <Route path="/students-desc/:id" element={<Addorupdate />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </StudentsData>
+      {/* <h1>Hello </h1> */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   )
 }
